@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Vital Ativa</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Vital Ativa</h1>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="planos.html">Planos</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contato-info">
+            <div class="container">
+                <h1>Entre em Contato</h1>
+                <div class="contato-grid">
+                    <div class="info-card">
+                        <h3>Endereço</h3>
+                        <p>Avenida Presidente Kennedy<br>Teresina - PI<br>CEP: 64055-585</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Telefone</h3>
+                        <p>(00) 00000-0000</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>E-mail</h3>
+                        <p>contato@vitalativa.com.br</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Horário</h3>
+                        <p>Segunda a Sexta: 5h às 22h<br>Sábado: 6h às 18h<br>Domingo: Fechado</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contato-form">
+            <div class="container">
+                <form id="form-contato">
+                    <h2>Envie sua Mensagem</h2>
+                    <input type="text" id="nome-contato" placeholder="Seu nome" required>
+                    <input type="email" id="email-contato" placeholder="Seu e-mail" required>
+                    <input type="tel" id="telefone-contato" placeholder="Seu telefone">
+                    <select id="assunto-contato" required>
+                        <option value="">Selecione o assunto</option>
+                        <option value="informacoes">Informações sobre planos</option>
+                        <option value="aula-experimental">Aula experimental</option>
+                        <option value="cancelamento">Cancelamento</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                    <textarea id="mensagem-contato" placeholder="Sua mensagem" rows="5" required></textarea>
+                    <button type="submit" class="btn-primary">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Academia Vital Ativa - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

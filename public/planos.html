@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Vital Ativa</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Vital Ativa</h1>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="planos.html">Planos</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="planos-hero">
+            <div class="container">
+                <h1>Nossos Planos</h1>
+                <div class="filtros">
+                    <button class="filtro-btn active" data-objetivo="todos">Todos</button>
+                    <button class="filtro-btn" data-objetivo="emagrecimento">Emagrecimento</button>
+                    <button class="filtro-btn" data-objetivo="hipertrofia">Hipertrofia</button>
+                    <button class="filtro-btn" data-objetivo="relaxamento">Relaxamento</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="planos-grid">
+            <div class="container">
+                <div class="plano-card" data-objetivo="emagrecimento hipertrofia">
+                    <h3>Plano Basic</h3>
+                    <div class="preco">R$ 89,90/mês</div>
+                    <ul class="beneficios">
+                        <li>Musculação</li>
+                        <li>Horário comercial</li>
+                        <li>Avaliação física</li>
+                    </ul>
+                    <button class="btn-matricula" data-plano="basic">Matricule-se Agora</button>
+                </div>
+
+                <div class="plano-card popular" data-objetivo="emagrecimento hipertrofia relaxamento">
+                    <h3>Plano Premium</h3>
+                    <div class="preco">R$ 149,90/mês</div>
+                    <ul class="beneficios">
+                        <li>Todas as modalidades</li>
+                        <li>Acesso livre</li>
+                        <li>Nutricionista</li>
+                        <li>App interno</li>
+                    </ul>
+                    <button class="btn-matricula" data-plano="premium">Matricule-se Agora</button>
+                </div>
+
+                <div class="plano-card" data-objetivo="relaxamento">
+                    <h3>Plano Zen</h3>
+                    <div class="preco">R$ 119,90/mês</div>
+                    <ul class="beneficios">
+                        <li>Pilates e Yoga</li>
+                        <li>Personal incluso</li>
+                        <li>Horários flexíveis</li>
+                    </ul>
+                    <button class="btn-matricula" data-plano="zen">Matricule-se Agora</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="horarios">
+            <div class="container">
+                <h2>Horários das Aulas</h2>
+                <div class="grade-horarios">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Horário</th>
+                                <th>Segunda</th>
+                                <th>Terça</th>
+                                <th>Quarta</th>
+                                <th>Quinta</th>
+                                <th>Sexta</th>
+                                <th>Sábado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>06:00</td>
+                                <td>CrossFit*</td>
+                                <td>Musculação</td>
+                                <td>CrossFit*</td>
+                                <td>Musculação</td>
+                                <td>CrossFit*</td>
+                                <td>Pilates*</td>
+                            </tr>
+                            <tr>
+                                <td>07:00</td>
+                                <td>Spinning*</td>
+                                <td>Pilates*</td>
+                                <td>Spinning*</td>
+                                <td>Pilates*</td>
+                                <td>Spinning*</td>
+                                <td>Yoga*</td>
+                            </tr>
+                            <tr>
+                                <td>18:00</td>
+                                <td>CrossFit*</td>
+                                <td>Spinning*</td>
+                                <td>CrossFit*</td>
+                                <td>Spinning*</td>
+                                <td>CrossFit*</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>* Necessário agendamento</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-matricula" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Matrícula</h2>
+            <form id="form-matricula">
+                <input type="text" id="nome-matricula" placeholder="Nome completo" required>
+                <input type="text" id="cpf-matricula" placeholder="CPF" required>
+                <input type="email" id="email-matricula" placeholder="E-mail" required>
+                <input type="tel" id="telefone-matricula" placeholder="Telefone" required>
+                <select id="plano-escolhido" required>
+                    <option value="">Selecione o plano</option>
+                </select>
+                <select id="horario-preferencial" required>
+                    <option value="">Horário preferencial</option>
+                    <option value="manha">Manhã (6h às 12h)</option>
+                    <option value="tarde">Tarde (12h às 18h)</option>
+                    <option value="noite">Noite (18h às 22h)</option>
+                </select>
+                <label class="checkbox">
+                    <input type="checkbox" id="aceite-termos" required>
+                    Aceito os termos e condições
+                </label>
+                <button type="submit" class="btn-primary">Finalizar Matrícula</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Academia Vital Ativa - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+:root {
+    --primary-red: #dc2626;
+    --secondary-red: #b91c1c;
+    --dark-red: #991b1b;
+    --light-gray: #f8fafc;
+}
+
+.stats-card {
+    background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+    color: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
+}
+
+.stats-card.green {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.stats-card.blue {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.stats-card.orange {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.card-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-red);
+}
+
+.card-item:hover {
+    transform: translateY(-5px);
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-ativa {
+    background: #10b981;
+    color: white;
+}
+
+.status-pendente {
+    background: #f59e0b;
+    color: white;
+}
+
+.status-novo {
+    background: #3b82f6;
+    color: white;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: var(--primary-red) !important;
+}
+
+.refresh-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary-red);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+}
+
+.tab-content {
+    margin-top: 20px;
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--primary-red);
+}
+
+/* Botões de ação */
+.btn-actions {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.btn-toggle, .btn-remove {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+
+.btn-toggle.ativo {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-toggle.inativo {
+    background-color: #ffc107;
+    color: black;
+}
+
+.btn-toggle.pendente {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.btn-toggle.novo {
+    background-color: #6f42c1;
+    color: white;
+}
+
+.btn-remove {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-toggle:hover {
+    opacity: 0.8;
+}
+
+.btn-remove:hover {
+    background-color: #c82333;
+}
+
+.status-ativo {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.status-inativo {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.status-pendente {
+    color: #17a2b8;
+    font-weight: bold;
+}
+
+.status-novo {
+    color: #6f42c1;
+    font-weight: bold;
+}

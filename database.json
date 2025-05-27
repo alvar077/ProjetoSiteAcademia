@@ -1,0 +1,17 @@
+{
+  "leads": [],
+  "matriculas": [
+    {
+      "id": "1748384163058",
+      "nome": "ALVARO DE SOUZA SANTOS",
+      "email": "souzaalvaro348@gmail.com",
+      "telefone": "(98) 99171-4168",
+      "cpf": "630.012.893-84",
+      "plano": "premium",
+      "aceite_termos": true,
+      "data_cadastro": "2025-05-27T22:16:03.058Z",
+      "status": "ativa"
+    }
+  ],
+  "contatos": []
+}
