@@ -1,4 +1,3 @@
-// Sistema de Administração - Versão Completa
 class AdminDashboard {
     constructor() {
         this.data = {
@@ -14,19 +13,12 @@ class AdminDashboard {
     async init() {
         console.log('🚀 Inicializando dashboard admin...');
         try {
-            // Primeiro testa a conectividade da API
             await this.testAPI();
-            
-            // Carrega os dados
             await this.loadDataFromAPI();
-            
-            // Configura eventos
             this.bindEvents();
-            
-            // Atualiza o dashboard
             this.updateDashboard();
-            
             console.log('✅ Dashboard inicializado com sucesso');
+
         } catch (error) {
             console.error('❌ Erro ao inicializar dashboard:', error);
             this.showError('Erro ao carregar dados do sistema: ' + error.message);
@@ -34,7 +26,6 @@ class AdminDashboard {
         }
     }
 
-    // Testa conectividade da API
     async testAPI() {
         try {
             const response = await fetch(`${this.baseUrl}/api/test`);
@@ -49,7 +40,6 @@ class AdminDashboard {
         }
     }
 
-    // Carregar dados da API com retry
     async loadDataFromAPI() {
         this.setGlobalLoading(true);
         
@@ -80,7 +70,6 @@ class AdminDashboard {
         }
     }
 
-    // Método auxiliar para fazer requisições com retry
     async fetchData(endpoint, retries = 3) {
         for (let i = 0; i < retries; i++) {
             try {
@@ -107,13 +96,11 @@ class AdminDashboard {
                     throw new Error(`Falha ao carregar ${endpoint} após ${retries} tentativas: ${error.message}`);
                 }
                 
-                // Aguarda antes da próxima tentativa
                 await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
             }
         }
     }
 
-    // Método para fazer POST
     async postData(endpoint, data) {
         try {
             const response = await fetch(`${this.baseUrl}${endpoint}`, {
@@ -135,7 +122,6 @@ class AdminDashboard {
         }
     }
 
-    // Método para fazer PUT
     async putData(endpoint, data) {
         try {
             const response = await fetch(`${this.baseUrl}${endpoint}`, {
@@ -157,7 +143,6 @@ class AdminDashboard {
         }
     }
 
-    // Método para fazer DELETE
     async deleteData(endpoint) {
         try {
             const response = await fetch(`${this.baseUrl}${endpoint}`, {
@@ -175,26 +160,20 @@ class AdminDashboard {
         }
     }
 
-    // Atualizar dashboard com estatísticas
     updateDashboard() {
         try {
-            // Total de matrículas ativas
             const totalMatriculas = this.data.matriculas.filter(m => m.status === 'ativa').length;
             this.updateElement('.total-matriculas', totalMatriculas);
 
-            // Calcular receita estimada
             const receita = this.calculateReceita();
             this.updateElement('.receita-estimada', `R$ ${receita.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`);
 
-            // Total de leads
             const totalLeads = this.data.leads.length;
             this.updateElement('.total-aulas-experimentais', totalLeads);
 
-            // Total de contatos
             const totalContatos = this.data.contatos.length;
             this.updateElement('.total-contatos', totalContatos);
 
-            // Renderizar tabelas
             this.renderLeads();
             this.renderMatriculas();
             this.renderContatos();
@@ -229,7 +208,6 @@ class AdminDashboard {
             }, 0);
     }
 
-    // Renderizar tabela de leads - FUNÇÃO COMPLETA
     renderLeads() {
         const tbody = document.querySelector('#aulas-experimentais-table tbody');
         if (!tbody) {
@@ -266,7 +244,6 @@ class AdminDashboard {
         });
     }
 
-    // Renderizar tabela de matrículas - FUNÇÃO COMPLETA
     renderMatriculas() {
         const tbody = document.querySelector('#matriculas-table tbody');
         if (!tbody) {
@@ -303,7 +280,6 @@ class AdminDashboard {
         });
     }
 
-    // Renderizar tabela de contatos - FUNÇÃO COMPLETA
     renderContatos() {
         const tbody = document.querySelector('#contatos-table tbody');
         if (!tbody) {
@@ -340,7 +316,6 @@ class AdminDashboard {
         });
     }
 
-    // Alternar status de um item
     async toggleStatus(type, id, currentStatus) {
         try {
             let newStatus;
@@ -367,7 +342,6 @@ class AdminDashboard {
         }
     }
 
-    // Remover item
     async removeItem(type, id) {
         if (!confirm('Tem certeza que deseja excluir este item? Esta ação não pode ser desfeita.')) {
             return;
@@ -384,7 +358,6 @@ class AdminDashboard {
         }
     }
 
-    // Recarregar dados
     async refreshData() {
         try {
             this.showLoading();
@@ -398,15 +371,12 @@ class AdminDashboard {
         }
     }
 
-    // Bind de eventos
     bindEvents() {
-        // Botão de refresh
         const refreshBtn = document.querySelector('.refresh-btn');
         if (refreshBtn) {
             refreshBtn.addEventListener('click', () => this.refreshData());
         }
 
-        // Auto-refresh a cada 5 minutos
         setInterval(() => {
             if (!this.isLoading) {
                 this.refreshData();
@@ -414,7 +384,6 @@ class AdminDashboard {
         }, 5 * 60 * 1000);
     }
 
-    // Funções utilitárias
     formatDate(dateString) {
         try {
             return new Date(dateString).toLocaleDateString('pt-BR', {
@@ -440,7 +409,6 @@ class AdminDashboard {
         return String(text).replace(/[&<>"']/g, (m) => map[m]);
     }
 
-    // Funções de UI
     setGlobalLoading(loading) {
         this.isLoading = loading;
         const loadingEl = document.querySelector('.loading-indicator');
@@ -466,11 +434,9 @@ class AdminDashboard {
     }
 
     showAlert(message, type) {
-        // Remove alertas existentes
         const existingAlerts = document.querySelectorAll('.admin-alert');
         existingAlerts.forEach(alert => alert.remove());
 
-        // Criar elemento de alerta
         const alert = document.createElement('div');
         alert.className = `admin-alert alert alert-${type === 'success' ? 'success' : 'danger'}`;
         alert.style.cssText = `
@@ -490,7 +456,6 @@ class AdminDashboard {
 
         document.body.appendChild(alert);
 
-        // Remover após 5 segundos
         setTimeout(() => {
             if (alert.parentElement) {
                 alert.remove();
@@ -499,7 +464,6 @@ class AdminDashboard {
     }
 
     showOfflineData() {
-        // Mostrar dados de exemplo quando offline
         console.log('📱 Mostrando dados offline...');
         this.data = {
             leads: [],
@@ -510,13 +474,11 @@ class AdminDashboard {
     }
 }
 
-// Inicializar dashboard quando DOM carregar
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🔄 DOM carregado, iniciando dashboard...');
     window.dashboard = new AdminDashboard();
 });
 
-// Tratamento de erros globais
 window.addEventListener('error', (e) => {
     console.error('❌ Erro global JavaScript:', e.error);
 });

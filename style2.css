@@ -87,7 +87,6 @@
     background-color: var(--primary-red);
 }
 
-/* Botões de ação */
 .btn-actions {
     display: flex;
     gap: 5px;

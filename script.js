@@ -1,13 +1,18 @@
 const API_BASE_URL = 'http://localhost:3000/api';
 
-// Estado global da aplicação
 const appState = {
     currentSlide: 0,
     totalSlides: 0,
     isLoading: false
 };
 
-// Inicialização quando DOM carrega
+const mobileMenu = document.getElementById('mobileMenu');
+const menu = document.querySelector('.menu');
+
+mobileMenu.addEventListener('click', () => {
+  menu.classList.toggle('active');
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
 });
@@ -21,7 +26,6 @@ function initializeApp() {
     setupFormValidations();
 }
 
-// Menu Mobile
 function setupMobileMenu() {
     const mobileMenu = document.querySelector('.mobile-menu');
     const menu = document.querySelector('.menu');
@@ -34,7 +38,6 @@ function setupMobileMenu() {
     }
 }
 
-// Modais
 function setupModalEvents() {
     const modal = document.getElementById('modal-matricula');
     const matriculaBtns = document.querySelectorAll('.btn-matricula');
@@ -67,7 +70,6 @@ function openMatriculaModal(plano) {
     const planoSelect = document.getElementById('plano-escolhido');
     
     if (modal && planoSelect) {
-        // Limpa e popula o select de planos
         planoSelect.innerHTML = `
             <option value="">Selecione o plano</option>
             <option value="basic">Plano Basic - R$ 89,90/mês</option>
@@ -83,7 +85,6 @@ function openMatriculaModal(plano) {
     }
 }
 
-// Filtros de planos
 function setupFilters() {
     const filterBtns = document.querySelectorAll('.filtro-btn');
     const planoCards = document.querySelectorAll('.plano-card');
@@ -92,12 +93,10 @@ function setupFilters() {
         filterBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const objetivo = e.target.getAttribute('data-objetivo');
-                
-                // Atualiza botões ativos
+
                 filterBtns.forEach(b => b.classList.remove('active'));
                 e.target.classList.add('active');
 
-                // Filtra cards
                 planoCards.forEach(card => {
                     const cardObjetivos = card.getAttribute('data-objetivo');
                     if (objetivo === 'todos' || cardObjetivos.includes(objetivo)) {
@@ -119,7 +118,6 @@ function setupFilters() {
     }
 }
 
-// Slider de depoimentos
 function setupSlider() {
     const depoimentos = document.querySelectorAll('.depoimento');
     const prevBtn = document.querySelector('.prev-btn');
@@ -133,7 +131,6 @@ function setupSlider() {
             nextBtn.addEventListener('click', () => changeSlide(1));
         }
 
-        // Auto-play do slider
         setInterval(() => {
             changeSlide(1);
         }, 5000);
@@ -156,30 +153,24 @@ function changeSlide(direction) {
     depoimentos[appState.currentSlide].classList.add('active');
 }
 
-// Manipuladores de formulários
 function setupFormHandlers() {
-    // Formulário de aula experimental
     const formExperimental = document.getElementById('form-experimental');
     if (formExperimental) {
         formExperimental.addEventListener('submit', handleAulaExperimental);
     }
 
-    // Formulário de matrícula
     const formMatricula = document.getElementById('form-matricula');
     if (formMatricula) {
         formMatricula.addEventListener('submit', handleMatricula);
     }
 
-    // Formulário de contato
     const formContato = document.getElementById('form-contato');
     if (formContato) {
         formContato.addEventListener('submit', handleContato);
     }
 }
 
-// Validações de formulário
 function setupFormValidations() {
-    // Validação de CPF em tempo real
     const cpfInput = document.getElementById('cpf-matricula');
     if (cpfInput) {
         cpfInput.addEventListener('input', (e) => {
@@ -200,7 +191,6 @@ function setupFormValidations() {
         });
     }
 
-    // Validação de telefone
     const phoneInputs = document.querySelectorAll('input[type="tel"]');
     phoneInputs.forEach(input => {
         input.addEventListener('input', (e) => {
@@ -212,7 +202,6 @@ function setupFormValidations() {
     });
 }
 
-// Handlers dos formulários
 async function handleAulaExperimental(e) {
     e.preventDefault();
     
@@ -333,7 +322,6 @@ async function handleContato(e) {
     }
 }
 
-// Funções utilitárias
 function validateCPF(cpf) {
     cpf = cpf.replace(/[^\d]+/g, '');
     if (cpf.length !== 11 || !!cpf.match(/(\d)\1{10}/)) return false;
@@ -424,7 +412,6 @@ function trackEvent(eventName, properties) {
     }
 }
 
-// Smooth scroll para links internos
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -438,7 +425,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Lazy loading para imagens
 if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -456,7 +442,6 @@ if ('IntersectionObserver' in window) {
     });
 }
 
-// Performance monitoring
 window.addEventListener('load', () => {
     setTimeout(() => {
         if ('performance' in window) {

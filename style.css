@@ -25,7 +25,6 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
 header {
     background: white;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -78,7 +77,6 @@ nav {
     transition: 0.3s;
 }
 
-/* Buttons */
 .btn-primary, .btn-secondary {
     padding: 12px 24px;
     border: none;
@@ -110,7 +108,6 @@ nav {
     color: white;
 }
 
-/* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
     color: white;
@@ -132,7 +129,6 @@ nav {
     margin-right: 1rem;
 }
 
-/* Modalidades */
 .modalidades {
     padding: 80px 0;
     background: var(--light-gray);
@@ -169,7 +165,6 @@ nav {
     margin-bottom: 1rem;
 }
 
-/* Aula Experimental */
 .aula-experimental {
     padding: 80px 0;
     background: var(--primary-red);
@@ -188,15 +183,13 @@ nav {
     gap: 1rem;
 }
 
-#form-experimental input,
-#form-experimental select {
+#form-experimental input, #form-experimental select {
     padding: 15px;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
 }
 
-/* Planos */
 .planos-hero {
     padding: 120px 0 50px;
     text-align: center;
@@ -288,7 +281,6 @@ nav {
     margin-top: 1rem;
 }
 
-/* Horários */
 .horarios {
     padding: 50px 0;
     background: var(--light-gray);
@@ -323,7 +315,6 @@ th {
     color: white;
 }
 
-/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -361,8 +352,7 @@ th {
     margin-top: 1rem;
 }
 
-#form-matricula input,
-#form-matricula select {
+#form-matricula input, #form-matricula select {
     padding: 12px;
     border: 2px solid #ddd;
     border-radius: 5px;
@@ -511,7 +501,6 @@ th {
     font-size: 1.2rem;
 }
 
-/* Contato */
 .contato-info {
     padding: 120px 0 50px;
 }
@@ -568,7 +557,6 @@ th {
     font-family: inherit;
 }
 
-/* Footer */
 footer {
     background: var(--dark-gray);
     color: white;
@@ -576,7 +564,6 @@ footer {
     padding: 2rem 0;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .menu {
         display: none;
@@ -632,7 +619,6 @@ footer {
     }
 }
 
-/* Estados de carregamento e feedback */
 .loading {
     opacity: 0.7;
     pointer-events: none;
@@ -674,3 +660,51 @@ footer {
     margin: 1rem 0;
     text-align: center;
 }
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.mobile-menu span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary-red);
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 70px;
+        right: 2rem;
+        width: 200px;
+        border-radius: 8px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        z-index: 999;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu li {
+        margin: 0;
+        padding: 12px 20px;
+    }
+
+    .menu li a {
+        color: var(--dark-gray);
+        font-weight: 600;
+    }
+
+    .mobile-menu {
+        display: flex;
+    } }
