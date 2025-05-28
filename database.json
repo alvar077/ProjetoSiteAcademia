@@ -19,6 +19,16 @@
       "tipo": "aula_experimental",
       "data_cadastro": "2025-05-27T23:20:02.461Z",
       "status": "novo"
+    },
+    {
+      "id": "1748395159949",
+      "nome": "opaaaa",
+      "email": "souzaalvaro348@gmail.com",
+      "telefone": "(98) 99171-4168",
+      "modalidade": "spinning",
+      "tipo": "aula_experimental",
+      "data_cadastro": "2025-05-28T01:19:19.949Z",
+      "status": "novo"
     }
   ],
   "matriculas": [],
